@@ -1,7 +1,7 @@
 
 
 
-const BlogPage = ({children}) => {
+const BlogPage = () => {
 
     return (
         <>
