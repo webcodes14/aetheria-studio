@@ -6,7 +6,7 @@ const MainNavigation = () => {
 
     return (
         <header>
-            <nav className={classes.navMenu}>
+            <nav>
                 <ul>
                     <li>
                         <NavLink 
