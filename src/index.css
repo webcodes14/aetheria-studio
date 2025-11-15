@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 :root {
-    --default-text: #636465;
+    --c-white: #ffffff;
+    --c-black: #1A1A1A;
+    --c-red: #B24A4E;
 }
 
 html {
