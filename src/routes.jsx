@@ -27,8 +27,8 @@ export const routes = [
     errorElement: <ErrorPage />,
     children: [
       { 
+        index: true,
         name: 'Úvod',
-        index: true, 
         element: 
         <Suspense fallback={<Loading />}>
             <HomePage />

@@ -1,6 +1,8 @@
 import { NavLink, Link } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
+import { motion, stagger } from "motion/react";
 
 import { routes } from "../routes.jsx";
 
@@ -9,9 +11,10 @@ import LogoScroll from "../assets/Logo-scroll.png";
 
 import classes from "../components/MainNavigation.module.css";
 
-
 const MainNavigation = () => {
     const [ isVisible, setIsVisible] = useState(false);
+    const [ iseMenuOpen, setIsMenuOpen ] = useState(false);
+    const [ scrollY, setScrollY ] = useState(0);
 
     const mainItems = routes[0]?.children || [];
 
@@ -19,12 +22,26 @@ const MainNavigation = () => {
         setIsVisible((prevState) => !prevState)
     }
 
+    if ( isVisible ) {
+        document.body.classList.add('menu-open');
+    } else {
+        document.body.classList.remove('menu-open');
+    }
+
+    useEffect(() => {
+        const onScroll = () => setScrollY(window.scrollY);
+
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
-        <header>
-            <div className={classes['nav-container']}>
+        <header className="fixed top-0 left-0 right-0 md:h-auto z-50">
+            <div className={`${classes['nav-container']} ${scrollY > 0 ? classes['scroll-container'] : ''}`}>
                 <h1>
                     <Link to='/'>
-                        <img src={LogoDefault} alt="Aetheria Design Studio" />
+                        <img src={scrollY > 0 ? LogoScroll : LogoDefault} alt="Aetheria Design Studio" />
                     </Link>
                 </h1>
                 <button type="button" className={classes['nav-menu-btn']} onClick={handleMenuVisible}>
@@ -37,34 +54,35 @@ const MainNavigation = () => {
                     <span>NU</span>
                 </button>
                 {isVisible && ( 
-                    <nav className={isVisible.menu ? 'nav-is-mobile' : null}>
-                        <ul>
+                    <nav className={isVisible ? classes['nav-is-mobile'] : null}>
+                        <button onClick={handleMenuVisible} className={classes['btn__menu--close']} type="button"><IoClose /></button>
+                        <ul className={classes['menu__list']}>
                             {mainItems
-                                .map((menuItem, index) => {
-                                    const listItemKeys = menuItem.path || index;
-                                    const hasChildren = menuItem.children && menuItem.children.length > 2;
-
+                                .map((menuItem) => {
+                                    const listItemKeys = menuItem.path || 'domu';
+                                    
                                     return (
-                                        <li key={listItemKeys}>
+                                        <li 
+                                            key={listItemKeys} 
+                                            className={listItemKeys === 'sluzby' ? `${classes.showDropdown} ${classes['menu__item']}` : classes['menu__item']}>
                                             <NavLink 
-                                                to={menuItem.path}
-                                                end={!hasChildren}
+                                                to={menuItem.path ? menuItem.path : '/'}
+                                                end={listItemKeys === 'domu'}
                                                 className={({ isActive }) => isActive ? classes.active : undefined} >
                                                 {menuItem.name}
                                                 {menuItem.path === 'sluzby' ? <span><RiArrowDropDownLine /></span> : null}
                                             </NavLink>
                                             {
-                                                hasChildren && (
+                                                listItemKeys === 'sluzby' && (
                                                     <ul>
-                                                        {menuItem.children
+                                                        {
+                                                            menuItem.children
                                                             .filter(item => item.name)
-                                                            .map((item) => {
-                                                                console.log(item)
+                                                            .map(item => {
                                                                 return (
                                                                     <li key={item.path}>
                                                                         <NavLink 
                                                                             to={menuItem.path + '/' + item.path}
-                                                                            end={item.index}
                                                                             className={({ isActive }) => isActive ? classes.active : undefined} >
                                                                             {item.name}
                                                                         </NavLink>
@@ -106,7 +124,7 @@ const MainNavigation = () => {
                                                     {menuItem.children
                                                         .filter(item => item.name)
                                                         .map((item) => {
-                                                            console.log(item)
+                                                            
                                                             return (
                                                                 <li key={item.path}>
                                                                     <NavLink 

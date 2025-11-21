@@ -1,5 +1,3 @@
-
-
 .nav-menu-btn {
     display: flex;
     font-size: 1.25rem;
@@ -27,9 +25,115 @@
     display: none;
 }
 
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    transition: background-color .3s linear, color .3s linear;
+}
+
+.scroll-container {
+    background-color: var(--c-black);
+    color: var(--c-white);
+}
+
+.nav-container img {
+    max-width: 10rem;
+    transition: all .3s linear;
+}
+
+.scroll-container img {
+    max-width: 7rem;
+}
+
+.nav-is-mobile {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    overflow: auto;
+}
+
+.btn__menu--close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: var(--c-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 12;
+}
+
+.menu__list {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2rem;
+    padding-right: 1rem;
+    color: var(--c-white);
+    z-index: 11;
+    backdrop-filter: blur(2px);
+}
+
+.menu__list::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--c-red);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.menu__item  {
+    position: relative;
+    z-index: 12;
+}
+
+
+.showDropdown > a + ul {
+    display: none;
+}
+
+.showDropdown:hover > a + ul {
+    display: block;
+}
+
+.showDropdown > a {
+    display: flex;
+    align-items: center;
+}
+
+.showDropdown > a span {
+    font-size: 1.5rem;
+}
+
+
+@media screen and (min-width: 480px) {
+    .menu__list::before {
+        content: "";
+        width: 30rem;
+        max-width: 100%;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 0%);
+    }
+}
+
 
 @media screen and (min-width: 768px) {
-    .nav-menu-btn {
+    .nav-menu-btn,
+    .nav-is-mobile {
         display: none;
     }
 
