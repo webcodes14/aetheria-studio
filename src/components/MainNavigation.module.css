@@ -83,6 +83,7 @@
     color: var(--c-white);
     z-index: 11;
     backdrop-filter: blur(2px);
+    overflow: hidden;
 }
 
 .menu__list::before {
@@ -95,29 +96,180 @@
     top: 0;
     right: 0;
     z-index: 10;
+    animation: menuMobileOpen .3s linear forwards alternate;
 }
 
-.menu__item  {
+.menu__list--close::before {
+    content: "";
+    animation: menuMobileClose .3s .3s linear forwards alternate;
+}
+
+.menu__item {
     position: relative;
     z-index: 12;
+    right: -15rem;
+    animation: menuOpenLi .3s linear forwards alternate;
+}
+
+.menu__item:nth-of-type(1)  {
+    animation-delay: 0.1s;
+}
+
+.menu__item:nth-of-type(2)  {
+    animation-delay: 0.15s;
+}
+
+.menu__item:nth-of-type(3)  {
+    animation-delay: 0.2s;
+}
+
+.menu__item:nth-of-type(4)  {
+    animation-delay: 0.25s;
+}
+
+.menu__item:nth-of-type(5)  {
+    animation-delay: 0.3s;
+}
+
+.menu__item:nth-of-type(6)  {
+    animation-delay: 0.35s;
+}
+
+.menu__list--close .menu__item {
+    right: 0;
+    animation: menuOpenLiClose .3s linear forwards alternate;
+}
+
+.menu__list--close .menu__item:nth-of-type(1)  {
+    animation-delay: 0.1s;
+}
+
+.menu__list--close .menu__item:nth-of-type(2)  {
+    animation-delay: 0.15s;
+}
+
+.menu__list--close .menu__item:nth-of-type(3)  {
+    animation-delay: 0.2s;
+}
+
+.menu__list--close .menu__item:nth-of-type(4)  {
+    animation-delay: 0.25s;
+}
+
+.menu__list--close .menu__item:nth-of-type(5)  {
+    animation-delay: 0.3s;
+}
+
+.menu__list--close .menu__item:nth-of-type(6)  {
+    animation-delay: 0.35s;
 }
 
 
 .showDropdown > a + ul {
-    display: none;
+    position: absolute;
+    right: 100%;
+    top: -5%;
+    text-align: right;
+    opacity: 0;
+    transition: all .3s linear;
 }
 
-.showDropdown:hover > a + ul {
-    display: block;
+.showDropdown:hover > a + ul,
+.showDropdown:focus > a + ul {
+    right: 105%;
+    opacity: 1;
 }
 
 .showDropdown > a {
     display: flex;
     align-items: center;
+    font-size: 1.8rem;
 }
 
-.showDropdown > a span {
+.showDropdown > span a {
     font-size: 1.5rem;
+}
+
+.menu__item {
+    width: 8rem;
+    height: 3rem;
+    perspective: 1000px;
+}
+
+.menu__item > a {
+    display: block;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg);
+    font-size: 1.8rem;
+    height: 100%;
+    font-weight: 100;
+}
+
+.menu__item:hover > a {
+    animation: menuItemRotate .5s linear forwards alternate;
+}
+
+.menu__item > a span:not(.layer) {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    bottom: 30%;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-shadow: 0 0 1px #fff;
+}
+
+.layer:nth-of-type(1) {
+    transform: translateZ(0px);
+}
+
+.layer:nth-of-type(2) {
+    transform: translateZ(-1px);
+}
+
+.layer:nth-of-type(3) {
+    transform: translateZ(-2px);
+}
+
+.layer:nth-of-type(4) {
+    transform: translateZ(-3px);
+}
+
+.layer:nth-of-type(5) {
+    transform: translateZ(-4px);
+}
+
+.layer:nth-of-type(6) {
+    transform: translateZ(-5px);
+}
+
+.layer:nth-of-type(7) {
+    transform: translateZ(-6px);
+}
+
+.layer:nth-of-type(8) {
+    transform: translateZ(-7px);
+}
+
+.layer:nth-of-type(9) {
+    transform: translateZ(-8px);
+}
+
+.layer:nth-of-type(10) {
+    transform: translateZ(-9px);
+}
+
+@keyframes menuItemRotate {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
 }
 
 
@@ -127,6 +279,11 @@
         width: 30rem;
         max-width: 100%;
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 0%);
+        animation: menuMobileOpen2 .2s linear forwards alternate;
+    }
+
+    .menu__list--close::before {
+        animation: menuMobileClose2 .3s .3s linear forwards alternate;
     }
 }
 
@@ -139,5 +296,66 @@
 
     .nav-is-not-mobile {
         display: block;
+    }
+}
+
+
+@keyframes menuMobileOpen {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes menuMobileOpen2 {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 30rem;
+    }
+}
+
+@keyframes menuMobileClose {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes menuMobileClose2 {
+    0% {
+        width: 30rem;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes menuOpenLi {
+    0% {
+        right: -15rem;
+    }
+    90% {
+        right: 1rem;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes menuOpenLiClose {
+    0% {
+        right: 0;
+    }
+    10% {
+        right: 1rem;
+    }
+    100% {
+        right: -15rem;
     }
 }

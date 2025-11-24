@@ -13,20 +13,35 @@ import classes from "../components/MainNavigation.module.css";
 
 const MainNavigation = () => {
     const [ isVisible, setIsVisible] = useState(false);
-    const [ iseMenuOpen, setIsMenuOpen ] = useState(false);
+    const [ isMenuOpen, setIsMenuOpen ] = useState(false);
     const [ scrollY, setScrollY ] = useState(0);
 
     const mainItems = routes[0]?.children || [];
 
     const handleMenuVisible = () => {
-        setIsVisible((prevState) => !prevState)
+        if ( isMenuOpen ) {
+            setIsMenuOpen(false);
+
+            const timeout = setTimeout(() => {
+                setIsVisible(false);
+            }, 600);
+
+            return () => clearTimeout(timeout);
+        } else {
+            setIsMenuOpen(true);
+            setIsVisible(true);
+        }
     }
 
-    if ( isVisible ) {
-        document.body.classList.add('menu-open');
-    } else {
-        document.body.classList.remove('menu-open');
-    }
+    useEffect(() => {
+        if ( isVisible ) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
+
+        return () => document.body.classList.remove('menu-open');
+    }, [isVisible]);
 
     useEffect(() => {
         const onScroll = () => setScrollY(window.scrollY);
@@ -56,7 +71,7 @@ const MainNavigation = () => {
                 {isVisible && ( 
                     <nav className={isVisible ? classes['nav-is-mobile'] : null}>
                         <button onClick={handleMenuVisible} className={classes['btn__menu--close']} type="button"><IoClose /></button>
-                        <ul className={classes['menu__list']}>
+                        <ul className={`${classes['menu__list']} ${isMenuOpen ? '' : classes['menu__list--close']}`}>
                             {mainItems
                                 .map((menuItem) => {
                                     const listItemKeys = menuItem.path || 'domu';
@@ -69,8 +84,17 @@ const MainNavigation = () => {
                                                 to={menuItem.path ? menuItem.path : '/'}
                                                 end={listItemKeys === 'domu'}
                                                 className={({ isActive }) => isActive ? classes.active : undefined} >
-                                                {menuItem.name}
                                                 {menuItem.path === 'sluzby' ? <span><RiArrowDropDownLine /></span> : null}
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
+                                                <span className={classes.layer}>{menuItem.name}</span>
                                             </NavLink>
                                             {
                                                 listItemKeys === 'sluzby' && (
