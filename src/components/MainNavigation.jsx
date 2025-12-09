@@ -2,7 +2,6 @@ import { NavLink, Link } from "react-router";
 import { useEffect, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoClose } from "react-icons/io5";
-import { motion, stagger } from "motion/react";
 
 import { routes } from "../routes.jsx";
 
@@ -52,10 +51,10 @@ const MainNavigation = () => {
     }, []);
 
     return (
-        <header className="fixed top-0 left-0 right-0 md:h-auto z-50">
-            <div className={`${classes['nav-container']} ${scrollY > 0 ? classes['scroll-container'] : ''}`}>
+        <header className={`fixed top-0 left-0 right-0 md:h-auto z-50 ${scrollY > 0 ? classes['scroll-header'] : ''}`}>
+            <div className={`${classes['nav-container']} ${scrollY > 0 ? classes['scroll-container'] : ''} md:max-w-screen-2xl mx-auto relative`}>
                 <h1>
-                    <Link to='/'>
+                    <Link to='.'>
                         <img src={scrollY > 0 ? LogoScroll : LogoDefault} alt="Aetheria Design Studio" />
                     </Link>
                 </h1>
@@ -81,7 +80,7 @@ const MainNavigation = () => {
                                             key={listItemKeys} 
                                             className={listItemKeys === 'sluzby' ? `${classes.showDropdown} ${classes['menu__item']}` : classes['menu__item']}>
                                             <NavLink 
-                                                to={menuItem.path ? menuItem.path : '/'}
+                                                to={menuItem.path ? menuItem.path : '.'}
                                                 end={listItemKeys === 'domu'}
                                                 className={({ isActive }) => isActive ? classes.active : undefined} >
                                                 {menuItem.path === 'sluzby' ? <span><RiArrowDropDownLine /></span> : null}
@@ -126,44 +125,39 @@ const MainNavigation = () => {
                     ) 
                 }
 
-                <nav className={classes["nav-is-not-mobile"]}>
+                <nav className={`${classes["nav-is-not-mobile"]}`}>
                     <ul>
                         {mainItems
                             .map((menuItem, index) => {
                                 const listItemKeys = menuItem.path || index;
-                                const hasChildren = menuItem.children && menuItem.children.length > 2;
 
                                 return (
                                     <li key={listItemKeys}>
                                         <NavLink 
-                                            to={menuItem.path}
-                                            end={!hasChildren}
+                                            to={menuItem.path ? menuItem.path : '.'}
+                                            end={menuItem.index}
                                             className={({ isActive }) => isActive ? classes.active : undefined} >
                                             {menuItem.name}
                                             {menuItem.path === 'sluzby' ? <span><RiArrowDropDownLine /></span> : null}
                                         </NavLink>
-                                        {
-                                            hasChildren && (
-                                                <ul>
-                                                    {menuItem.children
-                                                        .filter(item => item.name)
-                                                        .map((item) => {
-                                                            
-                                                            return (
-                                                                <li key={item.path}>
-                                                                    <NavLink 
-                                                                        to={menuItem.path + '/' + item.path}
-                                                                        end={item.index}
-                                                                        className={({ isActive }) => isActive ? classes.active : undefined} >
-                                                                        {item.name}
-                                                                    </NavLink>
-                                                                </li>
-                                                            )
-                                                        })
-                                                    }
-                                                </ul>
-                                            )
-                                        }
+                                        {listItemKeys === 'sluzby' && (
+                                            <ul className={classes["dropdown-menu"]}>
+                                                {menuItem.children
+                                                    .filter(item => item.name)
+                                                    .map((item) => {
+                                                        return (
+                                                            <li key={item.path}>
+                                                                <NavLink 
+                                                                    to={menuItem.path + '/' + item.path}
+                                                                    className={({ isActive }) => isActive ? classes.active : undefined} >
+                                                                    {item.name}
+                                                                </NavLink>
+                                                            </li>
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
+                                        )}
                                     </li>
                                 )
                             })

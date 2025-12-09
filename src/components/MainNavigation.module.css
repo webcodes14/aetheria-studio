@@ -263,14 +263,19 @@
     transform: translateZ(-9px);
 }
 
-@keyframes menuItemRotate {
-    0% {
-        transform: rotateX(0);
-    }
-    100% {
-        transform: rotateX(360deg);
-    }
+.nav-is-mobile .menu__item > .active {
+    color: #02f3ff;
 }
+
+.nav-is-mobile .menu__item > .active > .layer {
+    text-shadow: 0 0 1px #02f3ff;
+}
+
+.nav-is-mobile .menu__item ul .active {
+    color: #02f3ff;
+}
+
+
 
 
 @media screen and (min-width: 480px) {
@@ -294,8 +299,146 @@
         display: none;
     }
 
+    .nav-container {
+        transition: none;
+    }
+
+    .scroll-container {
+        background-color: transparent;
+    }
+
+    header {
+        transition: background-color .3s linear, color .3s linear;
+    }
+
+    .scroll-header {
+        background-color: var(--c-black);
+        color: var(--c-white);
+    }
+
     .nav-is-not-mobile {
         display: block;
+    }
+
+    .nav-container {
+        align-items: flex-end;
+    }
+
+    .nav-container.scroll-container .nav-is-not-mobile {
+        margin-bottom: 0;
+    }
+
+    .nav-container .nav-is-not-mobile {
+        margin-bottom: 0.3rem;
+    }
+
+    .nav-is-not-mobile ul {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .nav-is-not-mobile ul li {
+        position: relative;
+    }
+
+    .nav-is-not-mobile ul a[href="/sluzby"] {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .nav-is-not-mobile ul a[href="/sluzby"] span svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .nav-is-not-mobile ul a[href="/sluzby"] + ul {
+        position: absolute;
+        display: block;
+        right: 0.75rem;
+        top: 60%;
+        padding-top: 1rem;
+        text-align: right;
+        width: 7rem;
+        background-color: var(--c-white);
+        color: var(--c-black);
+        border-right: 1px solid var(--c-black);
+        z-index: 10;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s linear;
+    }
+
+    .nav-is-not-mobile ul li:has(a[href="/sluzby"]):hover a[href="/sluzby"] + ul,
+    .nav-is-not-mobile ul li:has(a[href="/sluzby"]):focus a[href="/sluzby"] + ul {
+        visibility: visible;
+        opacity: 1;
+        top: 100%;
+    }
+
+    .nav-is-not-mobile ul a[href="/sluzby"] + ul li {
+        padding-right: 0.5rem;
+        border-bottom: 1px solid var(--c-black);
+        margin: 0 0 0.5rem 0.5rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .nav-is-not-mobile ul a[href="/sluzby"] + ul li:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .scroll-container .nav-is-not-mobile ul a[href="/sluzby"] + ul {
+        background-color: var(--c-black);
+        color: var(--c-white);
+        border-color: var(--c-white);
+    }
+
+    .scroll-container .nav-is-not-mobile ul a[href="/sluzby"] + ul li:last-of-type {
+        padding-bottom: 0.5rem;
+        border-bottom: none;
+    }
+
+    .scroll-container .nav-is-not-mobile ul a[href="/sluzby"] + ul li {
+        border-color: var(--c-white);
+        padding-bottom: 0.4rem;
+    }
+
+    .nav-is-not-mobile .active {
+        color: var(--c-red);
+    }
+
+    .nav-is-not-mobile .active[href="/sluzby"] span {
+        color: var(--c-black);
+    }
+
+    .scroll-container .nav-is-not-mobile .active[href="/sluzby"] span {
+        color: var(--c-white);
+    }
+
+    .nav-is-not-mobile ul:has(li a[href="/sluzby"] + ul .active) a[href="/sluzby"] {
+        color: var(--c-black);
+    }
+
+    .scroll-container .nav-is-not-mobile ul:has(li a[href="/sluzby"] + ul .active) a[href="/sluzby"] {
+        color: var(--c-white);
+    }
+
+    .nav-is-not-mobile ul:has(li a[href="/sluzby"] + ul .active) a[href="/sluzby"] > span {
+        color: var(--c-red);
+    }
+
+
+}
+
+
+
+
+@keyframes menuItemRotate {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(360deg);
     }
 }
 
