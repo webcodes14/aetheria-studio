@@ -16,31 +16,3 @@ body {
     font-style: normal;
     color: var(--default-text);
 }
-
-strong {
-    font-weight: bold;
-}
-
-h1 {
-    font-size: 3rem;
-}
-
-h2 {
-    font-size: 2.25rem;
-}
-
-h3 {
-    font-size: 1.875rem;
-}
-
-h4 {
-    font-size: 1.5rem;
-}
-
-h5 {
-    font-size: 1.25rem;
-}
-
-.menu-open {
-    overflow: hidden;
-}
