@@ -1,4 +1,4 @@
-
+import ThemeBtn from "./components/ThemeBtn";
 
 
 
@@ -6,7 +6,7 @@
 
 const App = () => {
 
-  return 
+  return <ThemeBtn></ThemeBtn>
 }
 
 export default App;
