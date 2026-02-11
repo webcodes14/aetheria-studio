@@ -4,6 +4,7 @@
     --c-white: #ffffff;
     --c-black: #1A1A1A;
     --c-red: #B24A4E;
+    --c-grey: #898989;
 }
 
 html {
@@ -15,4 +16,8 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     color: var(--default-text);
+}
+
+body.dark {
+    background-color: #1A1A1A;
 }
