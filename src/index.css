@@ -21,3 +21,36 @@ body {
 body.dark {
     background-color: #1A1A1A;
 }
+
+.theme-overlay {
+    width: 100vmax;
+    height: 100vmax;
+    position: fixed;
+    top: -1rem;
+    left: -1rem;
+    z-index: -10;
+    transform: scale(3.5);
+    border-radius: 50%;
+    animation: themeOverlay 0.5s linear forwards;
+}
+
+.theme-overlay.light {
+    background-color: var(--c-black);
+}
+
+.theme-overlay.dark {
+    background-color: var(--c-white);
+}
+
+@keyframes themeOverlay {
+    0% {
+        width: 100vmax;
+        height: 100vmax;
+        transform: scale(3.5);
+    }
+    100% {
+        width: 0;
+        height: 0;
+        transform: scale(3.5);
+    }
+}

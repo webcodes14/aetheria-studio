@@ -7,17 +7,14 @@ import { FaSun } from "react-icons/fa";
 import { MdModeNight } from "react-icons/md";
 
 const ThemeBtn = () => {
-    const { theme, setTheme } = useApp();
-
-    const handleTheme = () => {
-        setTheme((t) => t === 'light' ? 'dark' : 'light');
-    }
+    const { theme, toggleTheme, isAnimating } = useApp();
 
     return <motion.button 
         type="button" 
+        disabled={isAnimating}
         className={classes.themeBtn}
         style={{ justifyContent: theme === 'light' ? "flex-start" : "flex-end" }}
-        onClick={handleTheme}
+        onClick={toggleTheme}
         aria-label="Doplnit vícero jazyků">
             {theme === 'light' ? (
                     <motion.span 

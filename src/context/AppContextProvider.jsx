@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { AppContext } from "./AppContext";
 
+
 export const AppContextProvider = ({ children }) => {
     const [ theme, setTheme ] = useState(() => {
         return localStorage.getItem('app-theme') || 'light';
@@ -8,6 +9,17 @@ export const AppContextProvider = ({ children }) => {
     const [ lang, setLang ] = useState(() => {
         return localStorage.getItem('app-lang') || 'cs';
     });
+    const [ isAnimating, setIsAnimating ] = useState(false);
+
+    const toggleTheme = () => {
+        setIsAnimating(true);
+
+        setTheme((t) => t === 'light' ? 'dark' : 'light');
+
+        setTimeout(() => {
+            setIsAnimating(false);
+        }, 500);
+    }
 
     useEffect(() => {
         localStorage.setItem('app-theme', theme);
@@ -24,11 +36,18 @@ export const AppContextProvider = ({ children }) => {
         document.documentElement.lang = lang;
     }, [ theme, lang ]);
 
-    const value = { theme, setTheme, lang, setLang }
+    const value = { 
+        theme, 
+        setTheme, 
+        lang, 
+        setLang, 
+        toggleTheme, 
+        isAnimating }
 
     return (
         <AppContext.Provider value={value}>
             {children}
+            {isAnimating && <div className={`theme-overlay ${theme}`}></div>}
         </AppContext.Provider>
     )
 }
