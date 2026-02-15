@@ -13,9 +13,7 @@ export const AppContextProvider = ({ children }) => {
 
     const toggleTheme = () => {
         setIsAnimating(true);
-
         setTheme((t) => t === 'light' ? 'dark' : 'light');
-
         setTimeout(() => {
             setIsAnimating(false);
         }, 500);

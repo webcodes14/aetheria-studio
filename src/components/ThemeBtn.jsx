@@ -12,7 +12,7 @@ const ThemeBtn = () => {
     return <motion.button 
         type="button" 
         disabled={isAnimating}
-        className={classes.themeBtn}
+        className={`${classes.themeBtn} ${classes[`${theme}`]}`}
         style={{ justifyContent: theme === 'light' ? "flex-start" : "flex-end" }}
         onClick={toggleTheme}
         aria-label="Doplnit vícero jazyků">

@@ -7,7 +7,15 @@
     gap: 0.25rem;
     width: 3.25rem;
     height: 1.75rem;
+    cursor: pointer;
+}
+
+.themeBtn.light {
     box-shadow: inset 0 0 10px var(--c-grey);
+}
+
+.themeBtn.dark {
+    box-shadow: inset 0 0 10px var(--c-black);
 }
 
 .themeBtnCircle {
