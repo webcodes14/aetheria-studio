@@ -1,4 +1,4 @@
-import { useApp } from "../context/AppContext";
+import { useApp } from "../../context/AppContext";
 import { motion } from "motion/react";
 
 import classes from "./ThemeBtn.module.css";

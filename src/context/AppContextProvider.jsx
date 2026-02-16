@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { AppContext } from "./AppContext";
-
 
 export const AppContextProvider = ({ children }) => {
     const [ theme, setTheme ] = useState(() => {
@@ -11,13 +10,13 @@ export const AppContextProvider = ({ children }) => {
     });
     const [ isAnimating, setIsAnimating ] = useState(false);
 
-    const toggleTheme = () => {
+    const toggleTheme = useCallback(() => {
         setIsAnimating(true);
         setTheme((t) => t === 'light' ? 'dark' : 'light');
         setTimeout(() => {
             setIsAnimating(false);
         }, 500);
-    }
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('app-theme', theme);
@@ -34,13 +33,14 @@ export const AppContextProvider = ({ children }) => {
         document.documentElement.lang = lang;
     }, [ theme, lang ]);
 
-    const value = { 
+    const value = useMemo(() => ({ 
         theme, 
         setTheme, 
         lang, 
         setLang, 
         toggleTheme, 
-        isAnimating }
+        isAnimating
+    }), [ theme, lang, isAnimating, toggleTheme ])
 
     return (
         <AppContext.Provider value={value}>

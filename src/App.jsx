@@ -1,12 +1,9 @@
-import ThemeBtn from "./components/ThemeBtn";
+import { RouterProvider } from "react-router";
 
-
-
-
+import { router } from "./routes";
 
 const App = () => {
-
-  return <ThemeBtn></ThemeBtn>
+  return <RouterProvider router={router} />
 }
 
 export default App;
