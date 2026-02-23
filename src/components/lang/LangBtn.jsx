@@ -44,7 +44,10 @@ const LangBtn = () => {
         <button 
             onClick={handleOpenMenu}
             className={isOpen ? classes.dropdownBtn : undefined}
-            key={currentLang.code}>
+            key={currentLang.code}
+            aria-expanded={isOpen}
+            aria-label={lang === 'cs' ? 'Čeština' : lang === 'en' ? 'English' : '한국어'}
+        >
                 <img className={classes.flag} src={currentLang.icon} alt={currentLang.label} />
                 <span className={`${classes.title} ${classes[`${theme}`]}`}>{currentLang.label}</span>
         </button>
