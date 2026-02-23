@@ -43,6 +43,7 @@ const LangBtn = () => {
     return <div ref={dropRef} className={classes.dropdown}>
         <button 
             onClick={handleOpenMenu}
+            className={isOpen ? classes.dropdownBtn : undefined}
             key={currentLang.code}>
                 <img className={classes.flag} src={currentLang.icon} alt={currentLang.label} />
                 <span className={`${classes.title} ${classes[`${theme}`]}`}>{currentLang.label}</span>
@@ -66,7 +67,7 @@ const LangBtn = () => {
                                 onClick={() => {setLang(language.code); setIsOpen(false);}}
                                 key={language.code}>
                                     <img className={classes.flag} src={language.icon} alt={language.label} />
-                                    <span className={`${classes.title} ${classes[`${theme}`]}`}>{language.label}</span>
+                                    <span className={`${classes.title}`}>{language.label}</span>
                             </button>
                         })
                     }

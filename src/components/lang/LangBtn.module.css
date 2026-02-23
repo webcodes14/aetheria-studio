@@ -1,6 +1,9 @@
 .dropdown {
-    padding: 0.5rem;
-    max-width: max-content;
+    order: -1;
+    width: calc(5/6 * 100%);
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
 }
 
 .dropdown button {
@@ -10,10 +13,6 @@
     padding: 0.3rem 1.2rem 0.3rem 0.7rem;
     cursor: pointer;
     text-align: left;
-}
-
-.dropdown > button {
-    margin-bottom: 0.5rem;
 }
 
 .flag {
@@ -27,12 +26,14 @@
     font-weight: 400;
 }
 
-.title.light {
+.openMenu {
+    position: absolute;
+    margin-top: 0.5rem;
+    top: 100%;
+    right: 0;
+    z-index: 10;
     color: var(--c-black);
-}
-
-.title.dark {
-    color: var(--c-white);
+    background-color: var(--c-white);
 }
 
 .openMenu button {
@@ -46,7 +47,6 @@
 .openMenu.light {
     background-color: white;
     filter: drop-shadow(0px 0px 4px #00000040);
-    position: relative;
 }
 
 .openMenu button span {

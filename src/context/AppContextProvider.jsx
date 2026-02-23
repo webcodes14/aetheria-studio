@@ -13,8 +13,11 @@ export const AppContextProvider = ({ children }) => {
     const toggleTheme = useCallback(() => {
         setIsAnimating(true);
         setTheme((t) => t === 'light' ? 'dark' : 'light');
+        document.body.classList.add('theme-animating');
+        
         setTimeout(() => {
             setIsAnimating(false);
+            document.body.classList.remove('theme-animating');
         }, 500);
     }, []);
 
@@ -29,6 +32,14 @@ export const AppContextProvider = ({ children }) => {
             document.body.classList.add('light');
             document.body.classList.remove('dark');
         }
+
+        if ((lang === 'cs') || (lang === 'en')) {
+            document.body.classList.add('font-latin');
+            document.body.classList.remove('font-korean');
+        } else {
+            document.body.classList.add('font-korean');
+            document.body.classList.remove('font-latin');
+        } 
 
         document.documentElement.lang = lang;
     }, [ theme, lang ]);

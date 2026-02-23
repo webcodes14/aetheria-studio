@@ -6,8 +6,21 @@ import classes from "./ThemeBtn.module.css";
 import { FaSun } from "react-icons/fa";
 import { MdModeNight } from "react-icons/md";
 
+const ariaBtnTheme = {
+    light: {
+        cs: "Přepnout na tmavý režim",
+        en: "Switch to dark mode",
+        ko: "다크 모드로 전환"
+    },
+    dark: {
+        cs: "Přepnout na světlý režim",
+        en: "Switch to light mode",
+        ko: "라이트 모드로 전환"
+    }
+}
+
 const ThemeBtn = () => {
-    const { theme, toggleTheme, isAnimating } = useApp();
+    const { lang, theme, toggleTheme, isAnimating } = useApp();
 
     return <motion.button 
         type="button" 
@@ -15,7 +28,7 @@ const ThemeBtn = () => {
         className={`${classes.themeBtn} ${classes[`${theme}`]}`}
         style={{ justifyContent: theme === 'light' ? "flex-start" : "flex-end" }}
         onClick={toggleTheme}
-        aria-label="Doplnit vícero jazyků">
+        aria-label={theme === 'light' ? ariaBtnTheme.light[lang] : ariaBtnTheme.dark[lang]}>
             {theme === 'light' ? (
                     <motion.span 
                         className={`${classes.themeBtnCircle} ${classes.themeBtnLight}`}

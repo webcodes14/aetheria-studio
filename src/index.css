@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -11,15 +12,35 @@ html {
     font-size: 16px;
 }
 
-body {
+body.font-latin {
     font: 300 1rem/1.5 "Montserrat", sans-serif;
+}
+
+body.font-korean {
+    font: 300 1rem/1.5 "Noto Sans KR", sans-serif;
+    letter-spacing: -0.03em;
+}
+
+body {
     font-optical-sizing: auto;
     font-style: normal;
-    color: var(--default-text);
+    color: var(--c-black);
+}
+
+body main, 
+body header > *:not(:last-of-type) {
+    opacity: 1;
+    transition: opacity .5s linear;
 }
 
 body.dark {
-    background-color: #1A1A1A;
+    background-color: var(--c-black);
+    color: var(--c-white);
+}
+
+body.theme-animating main, 
+body.theme-animating header > *:not(:last-of-type) {
+    opacity: 0;
 }
 
 .theme-overlay {
@@ -27,7 +48,7 @@ body.dark {
     height: 100vmax;
     position: fixed;
     top: -1rem;
-    left: -1rem;
+    right: -1rem;
     z-index: -10;
     transform: scale(3.5);
     border-radius: 50%;
