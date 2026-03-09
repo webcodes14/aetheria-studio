@@ -43,6 +43,14 @@ body.theme-animating header > *:not(:last-of-type) {
     opacity: 0;
 }
 
+strong {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 280%;
+}
+
 .theme-overlay {
     width: 100vmax;
     height: 100vmax;

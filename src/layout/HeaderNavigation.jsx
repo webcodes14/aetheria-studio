@@ -47,12 +47,20 @@ const HeaderNavigation = () => {
     }, []);
 
     useEffect(() => {
+        if (isMobile) {
+            document.body.classList.add("is-mobile");
+        } else {
+            document.body.classList.remove("is-mobile");
+        }
+    }, [ isMobile ])
+
+    useEffect(() => {
         if (isMenuOpen) {
             document.body.classList.add("open-mobile-menu");
         } else {
             document.body.classList.remove("open-mobile-menu");
         }
-    }, [ isMenuOpen ])
+    }, [ isMenuOpen, isMobile ])
 
     useEffect(() => {
         const handleClickOutsides = ( event ) => {
