@@ -16,7 +16,7 @@ const ImageSlider = () => {
 
     const isMobileDevice = document.body.classList.contains('is-mobile');
     const currentSlide = dataProjects[lang][currentImageIndex];
-
+    
     return (
         <div className="relative my-8 h-120 overflow-hidden flex justify-start items-center md:w-7xl md:justify-end">
             <AnimatePresence>
