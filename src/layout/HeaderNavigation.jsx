@@ -216,7 +216,7 @@ const HeaderNavigation = () => {
             {isMobile && 
                 <button 
                     type="button"
-                    className="cursor-pointer relative z-50"
+                    className={`cursor-pointer z-50 ${isMenuOpen ? 'fixed top-[7%]' : 'relative'}`}
                     onClick={handleOpenMenu}
                 >
                     {isMenuOpen ? <CgClose className="text-3xl" /> : <CgMenuRight className="text-3xl" />}

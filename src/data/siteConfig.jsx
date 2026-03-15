@@ -1,10 +1,10 @@
 import { 
     MdOutlineBrandingWatermark, 
     MdOutlineWeb, 
-    MdOutlineAutoAwesome,
     MdOutlineInsights 
 } from "react-icons/md";
 import { FiMessageCircle, FiFeather, FiTarget } from "react-icons/fi";
+import { FaRegCommentDots } from "react-icons/fa";
 
 export const siteConfig = {
   cs: {
@@ -52,25 +52,26 @@ export const siteConfig = {
             icon: <MdOutlineBrandingWatermark />
         },
         {
-            id: "web",
+            id: "webdesign",
             title: "Webdesign",
             desc_short: "Navrhujeme a vyvíjíme weby, které nejsou jen krásné, ale především funkční a přehledné.",
             icon: <MdOutlineWeb />
         },
         {
-            id: "creative",
-            title: "Kreativní směr",
-            desc_short: "Pomáháme značkám najít jejich jedinečný hlas v digitálním chaosu dnešní doby.",
-            icon: <MdOutlineAutoAwesome />
-        },
-        {
             id: "strategy",
-            title: "Digitální strategie & UX",
+            title: "Digitální strategie",
             desc_short: "Design bez strategie je jen dekorace. Pomáháme nastavit cestu vašeho zákazníka tak, aby web nebyl jen vizitkou, ale výkonným prodejním nástrojem.",
             icon: <MdOutlineInsights />
+        },
+        {
+            id: "consultation",
+            title: "Konzultace",
+            desc_short: "Začínáme dialogem. Poskytujeme expertní vhled a strategické vedení pro váš projekt ještě před prvními návrhy.",
+            icon: <FaRegCommentDots />
         }
     ],
 
+    clients_title: "Naši klienti",
     clients: [
         {
             name: "Klára Novotná",
@@ -160,25 +161,26 @@ export const siteConfig = {
             icon: <MdOutlineBrandingWatermark />
         },
         {
-            id: "web",
+            id: "webdesign",
             title: "Web Design",
             desc_short: "We design and develop websites that are not only beautiful but, above all, functional and clear.",
             icon: <MdOutlineWeb />
         },
         {
-            id: "creative",
-            title: "Creative Direction",
-            desc_short: "We help brands find their unique voice in today's digital chaos.",
-            icon: <MdOutlineAutoAwesome />
-        },
-        {
             id: "strategy",
-            title: "Digital Strategy & UX",
+            title: "Digital Strategy",
             desc_short: "Design without strategy is just decoration. We help set your customer's journey so that the web is not just a business card, but a powerful sales tool.",
             icon: <MdOutlineInsights />
+        },
+        {
+            id: "consultation",
+            title: "Consultation",
+            desc_short: "We start with a dialogue. Providing expert insights and strategic guidance for your project before the first designs take shape.",
+            icon: <FaRegCommentDots />
         }
     ],
 
+    clients_title: "Our clients",
     clients: [
         {
             name: "Klára Novotná",
@@ -268,25 +270,26 @@ export const siteConfig = {
             icon: <MdOutlineBrandingWatermark />
         },
         {
-            id: "web",
+            id: "webdesign",
             title: "웹 디자인",
             desc_short: "아름다울 뿐만 아니라 무엇보다 기능적이고 명확한 웹사이트를 설계하고 개발합니다.",
             icon: <MdOutlineWeb />
         },
         {
-            id: "creative",
-            title: "크리에이티브 디렉션",
-            desc_short: "오늘날의 디지털 혼돈 속에서 브랜드가 고유한 목소리를 찾을 수 있도록 돕습니다.",
-            icon: <MdOutlineAutoAwesome />
-        },
-        {
             id: "strategy",
-            title: "디지털 전략 & UX",
+            title: "디지털 전략",
             desc_short: "전략 없는 디자인은 장식에 불과합니다. 웹사이트가 단순한 명함을 넘어 강력한 영업 도구가 될 수 있도록 고객의 여정을 설정하는 데 도움을 드립니다.",
             icon: <MdOutlineInsights />
+        },
+        {
+            id: "consultation",
+            title: "컨설팅",
+            desc_short: "대화에서 시작합니다. 첫 디자인이 나오기 전부터 프로젝트를 위한 전문가의 통찰과 전략적 가이드를 제공합니다.",
+            icon: <FaRegCommentDots />
         }
     ],
 
+    clients_title: "저희 고객들",
     clients: [
         {
             name: "Klára Novotná",

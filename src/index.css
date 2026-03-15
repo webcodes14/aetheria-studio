@@ -51,6 +51,10 @@ h1 {
     font-size: 280%;
 }
 
+h2 {
+    font-size: 220%;
+}
+
 .theme-overlay {
     width: 100vmax;
     height: 100vmax;

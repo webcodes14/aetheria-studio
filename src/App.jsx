@@ -24,6 +24,8 @@ const App = () => {
   const themeColor = theme === 'light' ? '#1a1a1a' : 'white';
 
   return <RouterProvider router={router} />
+
+  /* Loading animace */
   /* return (
     <>
       <AnimatePresence>

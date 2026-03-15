@@ -1,7 +1,7 @@
 
 @media screen and (max-width: 768px) {
     .listMenu {
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         width: 100%;

@@ -10,6 +10,7 @@ const ProjectDetailPage = lazy(() => import("./pages/ProjectDetail"));
 const ServicesPage = lazy(() => import("./pages/Services"));
 const BrandingPage = lazy(() => import("./pages/Branding"));
 const WebdesignPage = lazy(() => import("./pages/Webdesign"));
+const StrategyPage = lazy(() => import("./pages/Strategy"));
 const ConsultationPage = lazy(() => import("./pages/Consultation"));
 const AboutPage = lazy(() => import("./pages/About"));
 const BlogsPage = lazy(() => import("./pages/Blogs"));
@@ -61,6 +62,11 @@ export const router = createBrowserRouter([
                         path: "services/webdesign",
                         labels: { cs: "Webdesign", en: "Web Design", ko: "웹 디자인" },
                         element: <Suspense fallback={<Skeleton />}><WebdesignPage /></Suspense>
+                    },
+                    {
+                        path: "services/strategy",
+                        labels: { cs: "Digitální strategie", en: "Digital Strategy", ko: "디지털 전략" },
+                        element: <Suspense fallback={<Skeleton />}><StrategyPage /></Suspense>
                     },
                     {
                         path: "services/consultation",

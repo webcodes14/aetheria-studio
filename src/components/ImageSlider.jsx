@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { useState } from "react";
 
 const ImageSlider = () => {
-    const { lang } = useApp();
+    const { lang, theme } = useApp();
     const [ currentImageIndex, setCurrentImageIndex ] = useState(0);
     const totalLengthImages = dataProjects[lang].length;
 
@@ -34,7 +34,7 @@ const ImageSlider = () => {
                 className="relative transform rotate-180 p-3.5 bg-white cursor-pointer rounded-[50%] ml-4 drop-shadow-[0px_0px_4px_#00000050] md:ml-0 md:mr-4 md:transform md:rotate-0"
                 onClick={handleNextImage} 
                 type="button">
-                    <FaArrowRight />
+                    <FaArrowRight className={`${theme === 'light' ? '' : 'text-[#1a1a1a]'}`} />
             </button>
         </div>
     )
