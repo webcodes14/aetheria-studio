@@ -80,7 +80,7 @@ const HomePage = () => {
             </section>
             <motion.section 
                 className="my-8"
-                initial={{ opacity: 0}}
+                initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ amount: 0.2 }}
             >
@@ -116,14 +116,18 @@ const HomePage = () => {
                     })}
                 </div>
             </motion.section>
-            {/* <section>
+            <motion.section
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ amount: 0.3 }}
+            >
                 <h2
                     className="text-center mb-12"
                 >
                     <strong>{siteConfig[lang].clients_title}</strong>
                 </h2>
                 <CarouselClients />
-            </section> */}
+            </motion.section>
         </>
     )
 }
