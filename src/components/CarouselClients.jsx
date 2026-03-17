@@ -9,22 +9,29 @@ const CarouselContext = createContext(null);
 
 const Carousel = ({ children, data }) => {
     const [ index, setIndex ] = useState(0);
+    const [ isPaused, setIsPaused ] = useState(false);
 
     const prev = () => setIndex(prevState => (prevState - 1 + data.length) % data.length);
     const next = () => setIndex(prevState => (prevState + 1) % data.length);
 
     /* useEffect(() => {
+        if( isPaused ) return;
+
         const timeout = setTimeout(() => {
             setIndex(prevState => (prevState + 1) % data.length);
         }, 3000);
 
         return () => clearTimeout(timeout);
-    }, [ index, data ]); */
+    }, [ index, data, isPaused ]); */
 
     return <CarouselContext.Provider 
         value={{ index, prev, next, data }} 
     >
-        <div className="relative overflow-hidden">
+        <div 
+            className="relative overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+        >
             {children}
         </div>
     </CarouselContext.Provider>

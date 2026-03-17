@@ -94,7 +94,7 @@ const HomePage = () => {
                         return ( 
                             <div
                                 key={item.id}
-                                className={`relative flex flex-col shrink-0 justify-between max-w-full w-80 text-center p-4 mx-auto`}
+                                className={`relative flex flex-col shrink-0 justify-between max-w-full w-[350px] text-center p-4 mx-auto`}
                             >
                                 <span className="text-6xl flex justify-center">{item.icon}</span>
                                 <h3 className="text-2xl">
@@ -107,8 +107,8 @@ const HomePage = () => {
                                     {item.number}
                                 </span>
                                 {_ !== array.length - 1 && (
-                                    <div className="transform rotate-90 lg:hidden 2xl:block 2xl:rotate-0">
-                                        <img className="absolute bottom-0 top-0 -right-4 2xl:right-[-62%] 2xl:-top-24" src={ArrowDown} alt="Arrow" />
+                                    <div className="relative transform rotate-90 lg:hidden 2xl:block 2xl:rotate-0">
+                                        <img className="absolute bottom-0 top-0 -right-4 2xl:right-[-50%] 2xl:-top-24" src={ArrowDown} alt="Arrow" />
                                     </div>
                                 )}
                             </div>
