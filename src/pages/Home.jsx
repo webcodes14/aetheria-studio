@@ -23,6 +23,16 @@ const langBtns = {
         cs: "Pojďme se spojit",
         en: "Let's get in touch",
         ko: "문의하기"
+    },
+    contact_title: {
+        cs: "Jste připraveni přetvořit svou vizi?",
+        en: "Ready to reshape your vision?",
+        ko: "당신의 비전을 실현할 준비가 되셨나요?"
+    },
+    contact_text: {
+        cs: "Máte dotaz, nebo chcete začít projekt? Jsme tu pro Vás.",
+        en: "Have a question or want to start a project? We are here for you.",
+        ko: "궁금한 점이 있거나 프로젝트를 시작하고 싶으신가요? 저희가 도와드리겠습니다."
     }
 }
 
@@ -89,12 +99,12 @@ const HomePage = () => {
                 >
                     <strong>{siteConfig[lang].approach.title}</strong>
                 </h2>
-                <div className="flex flex-col gap-40 lg:flex-row lg:gap-4">
-                    {siteConfig[lang].approach.items.map((item, _, array) => {
+                <div className="flex flex-col flex-wrap gap-40 lg:flex-row lg:gap-4">
+                    {siteConfig[lang].approach.items.map((item, i, array) => {
                         return ( 
                             <div
                                 key={item.id}
-                                className={`relative flex flex-col shrink-0 justify-between max-w-full w-80 text-center p-4 mx-auto`}
+                                className={`relative flex flex-col shrink-0 justify-between max-w-full w-[350px] text-center p-4 mx-auto`}
                             >
                                 <span className="text-6xl flex justify-center">{item.icon}</span>
                                 <h3 className="text-2xl">
@@ -106,9 +116,9 @@ const HomePage = () => {
                                 >
                                     {item.number}
                                 </span>
-                                {_ !== array.length - 1 && (
-                                    <div className="transform rotate-90 lg:hidden 2xl:block 2xl:rotate-0">
-                                        <img className="absolute bottom-0 top-0 -right-4 2xl:right-[-62%] 2xl:-top-24" src={ArrowDown} alt="Arrow" />
+                                {i !== array.length - 1 && (
+                                    <div className="relative transform rotate-90 lg:hidden 2xl:block 2xl:rotate-0">
+                                        <img className="absolute bottom-0 top-0 -right-4 2xl:right-[-50%] 2xl:-top-24" src={ArrowDown} alt="Arrow" />
                                     </div>
                                 )}
                             </div>
@@ -117,9 +127,9 @@ const HomePage = () => {
                 </div>
             </motion.section>
             <motion.section
-                initial={{ y: 200, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ amount: 0.3 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ amount: 0.2 }}
             >
                 <h2
                     className="text-center mb-12"
@@ -127,6 +137,19 @@ const HomePage = () => {
                     <strong>{siteConfig[lang].clients_title}</strong>
                 </h2>
                 <CarouselClients />
+            </motion.section>
+            <motion.section className="my-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ amount: 0.2 }}
+            >
+                <h2
+                    className="text-center mt-12 my-3"
+                >
+                    <strong>{langBtns.contact_title[lang]}</strong>
+                </h2>
+                <p className="text-center">{langBtns.contact_text[lang]}</p>
+                <ButtonLink className="my-4 justify-center text-xl" to="contact">{langBtns.contact[lang]}</ButtonLink>
             </motion.section>
         </>
     )
