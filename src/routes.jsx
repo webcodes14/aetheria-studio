@@ -47,33 +47,7 @@ export const router = createBrowserRouter([
             {
                 path: "services",
                 labels: { cs: "Služby", en: "Services", ko: "서비스" },
-                hasDropdown: true,
-                children: [
-                    {
-                        index: true,
-                        element: <Suspense fallback={<Skeleton />}><ServicesPage /></Suspense>
-                    },
-                    {
-                        path: "services/branding",
-                        labels: { cs: "Branding", en: "Branding", ko: "브랜딩" },
-                        element: <Suspense fallback={<Skeleton />}><BrandingPage /></Suspense>
-                    },
-                    {
-                        path: "services/webdesign",
-                        labels: { cs: "Webdesign", en: "Web Design", ko: "웹 디자인" },
-                        element: <Suspense fallback={<Skeleton />}><WebdesignPage /></Suspense>
-                    },
-                    {
-                        path: "services/strategy",
-                        labels: { cs: "Digitální strategie", en: "Digital Strategy", ko: "디지털 전략" },
-                        element: <Suspense fallback={<Skeleton />}><StrategyPage /></Suspense>
-                    },
-                    {
-                        path: "services/consultation",
-                        labels: { cs: "Konzultace", en: "Consultancy", ko: "컨설팅" },
-                        element: <Suspense fallback={<Skeleton />}><ConsultationPage /></Suspense>
-                    }
-                ]
+                element: <Suspense fallback={<Skeleton />}><ServicesPage /></Suspense>
             },
             {
                 path: "about",

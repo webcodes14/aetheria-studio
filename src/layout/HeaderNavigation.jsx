@@ -3,10 +3,9 @@ import { NavLink, Link } from "react-router";
 import { router } from "../routes";
 import { useApp } from "../context/AppContext";
 import { siteConfig } from "../data/siteConfig";
-import { motion, AnimatePresence, stagger } from "motion/react";
+import { motion, stagger } from "motion/react";
 
 import { CgMenuRight, CgClose } from "react-icons/cg";
-import { VscTriangleRight } from "react-icons/vsc";
 
 import LangBtn from "../components/lang/LangBtn";
 import ThemeBtn from "../components/theme/ThemeBtn";
@@ -19,7 +18,6 @@ import LogoWhite from "../assets/Logo-scroll.png";
 const HeaderNavigation = () => {
     const [ deviceWidth, setDeviceWidth ] = useState(window.innerWidth);
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
-    const [ isDropdownOpen, setIsDropdownOpen ] = useState(false);
     const { lang, theme } = useApp();
     const dropRef = useRef();
     
@@ -32,10 +30,6 @@ const HeaderNavigation = () => {
 
     const handleOpenMenu = () => {
         setIsMenuOpen(prevState => !prevState);
-    }
-
-    const handleDropdownMenu = () => {
-        setIsDropdownOpen(prevState => !prevState);
     }
 
     useEffect(() => {
@@ -61,21 +55,6 @@ const HeaderNavigation = () => {
             document.body.classList.remove("open-mobile-menu");
         }
     }, [ isMenuOpen, isMobile ])
-
-    useEffect(() => {
-        const handleClickOutsides = ( event ) => {
-            if ( dropRef.current && !dropRef.current.contains(event.target) ) {
-                setIsDropdownOpen(false);
-            }
-        }
-
-        document.addEventListener('mousedown', handleClickOutsides);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutsides);
-        }
-
-    }, []);
 
     const containerList = {
         visible: { 
@@ -124,13 +103,6 @@ const HeaderNavigation = () => {
                             transition={{ type: "spring", duration: 0.15 }}
                             className={`${item.hasDropdown ? 'flex items-center' : 'inline-block'} cursor-pointer md:flex`}
                         >
-                            {item.hasDropdown ? 
-                                <motion.span 
-                                onClick={item.hasDropdown ? handleDropdownMenu : undefined}
-                                className={`${isDropdownOpen ? 'text-white md:text-[#1a1a1a]' : ''} ${theme === 'light' ? 'md:text-[#1a1a1a]' : 'md:text-white'}`}
-                                    initial={{ rotate: 0 }}
-                                    animate={ isDropdownOpen ? { rotate: 90 } : 0}
-                                ><VscTriangleRight /></motion.span> : undefined}
                             <NavLink
                                 to={item.index ? '/' : item.path}
                                 end={!!item.index}
@@ -152,52 +124,6 @@ const HeaderNavigation = () => {
                                 )}
                             </NavLink>
                         </motion.div>
-                        <AnimatePresence>
-                            {item.hasDropdown && isDropdownOpen &&
-                                <motion.ul 
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    transition={{
-                                        duration: 0.3,
-                                        bounce: 0.6
-                                    }}
-                                    className="md:absolute md:top-full md:right-0 md:w-max"
-                                >
-                                    {item.children
-                                        .filter(dropItem => dropItem.labels)
-                                        .map(dropItem => 
-                                            <li key={dropItem.labels.en} className="text-2xl my-2 md:text-sm">
-                                                <motion.div
-                                                    transition={{ type: "spring", duration: 0.15 }}
-                                                    className="inline-block"
-                                                >
-                                                    <NavLink
-                                                        to={dropItem.path}
-                                                        className={({ isActive }) => 
-                                                            isActive ? `relative z-10 px-2 py-1 text-white cursor-default md:text-[#B24A4E]` : "px-2 py-1 relative z-10"
-                                                        }
-                                                    >
-                                                        {({ isActive }) => (
-                                                            <>
-                                                                {dropItem.labels[lang]}
-                                                                {isActive && (
-                                                                    <motion.div
-                                                                        layoutId="active-pill"
-                                                                        className="absolute inset-0 -z-10 border-[#ffffff] md:border-[#B24A4E] border-2 border-solid"
-                                                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                                                    />
-                                                                )}
-                                                            </>
-                                                        )}
-                                                    </NavLink>
-                                                </motion.div>
-                                            </li>
-                                        )
-                                    }
-                                </motion.ul>
-                            }
-                        </AnimatePresence>
                     </motion.li>
                 )
             }
