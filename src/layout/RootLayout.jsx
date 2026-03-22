@@ -32,7 +32,7 @@ const RootLayout = () => {
     }, []);
 
     return (
-        <>
+        <div className="relative">
             <HeaderNavigation />
             <main className="p-2 md:max-w-screen-2xl md:mx-auto">
                 <Outlet />
@@ -52,7 +52,7 @@ const RootLayout = () => {
                 </AnimatePresence>
             </main>
             <FooterNavigation />
-        </>
+        </div>
     )
 }
 

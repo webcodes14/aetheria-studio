@@ -34,7 +34,7 @@ const footerTexts = {
 }
 
 const FooterNavigation = () => {
-    const { lang } = useApp();
+    const { lang, theme } = useApp();
     const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm();
 
 
@@ -49,7 +49,7 @@ const FooterNavigation = () => {
 
     const t = footerTexts[lang];
 
-    return <footer className="bg-[#1a1a1a] p-4 mt-8">
+    return <footer className={`${theme === 'light' ? 'bg-[#1a1a1a]' : 'bg-[#00000030]'} p-4 mt-8`}>
         <div className="md:max-w-screen-2xl md:mx-auto py-12">
             <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between md:items-start">
                 <div className="flex justify-center order-1 md:order-0">
