@@ -107,7 +107,7 @@ const HeaderNavigation = () => {
                                 to={item.index ? '/' : item.path}
                                 end={!!item.index}
                                 className={({ isActive }) => 
-                                    isActive ? "relative z-10 px-2 py-1 text-white cursor-default md:text-[#B24A4E]" : "px-2 py-1 relative z-10"
+                                    isActive ? "relative z-10 px-2 py-1 text-white md:text-[#B24A4E]" : "px-2 py-1 relative z-10"
                                 }
                             >
                                 {({ isActive }) => (
