@@ -82,7 +82,7 @@ const HomePage = () => {
                                     </h3>
                                     <p className="my-4">{service.desc_short}</p>
                                 </div>
-                                <ButtonLink to={`services/${service.slug}`} className="mt-8 justify-center">{langBtns.more[lang]}</ButtonLink>
+                                <ButtonLink to={`services#${service.id}`} className="mt-8 justify-center">{langBtns.more[lang]}</ButtonLink>
                             </motion.div>
                         )
                     })}

@@ -17,7 +17,7 @@ const ProjectDetailPage = () => {
     const detailProject = dataProjects[lang].find(project => project.slug === projectId);
 
     if (!detailProject) {
-        return <Navigate to="/projects" replace />;
+        return <Navigate to=".." replace />;
     }
 
     return <article className="my-4 lg:flex lg:items-center">
@@ -28,7 +28,7 @@ const ProjectDetailPage = () => {
             </h3>
             <p className="mt-4">{detailProject.tags.join(' / ')}</p>
             <p className="mt-2 mb-4 text-balance leading-relaxed">{detailProject.description}</p>
-            <ButtonLink to="/projects">{backButton[lang]}</ButtonLink>
+            <ButtonLink to="..">{backButton[lang]}</ButtonLink>
         </div>
         <figure className="mt-4 lg:w-2/3 lg:ml-2">
             <img className="lg:h-dvh lg:object-cover" src={detailProject.image} alt={detailProject.title} />
