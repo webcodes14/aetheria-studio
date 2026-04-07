@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 
 import { FaArrowUp } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -10,6 +10,7 @@ import FooterNavigation from "./FooterNavigation";
 
 const RootLayout = () => {
     const [ visibleScrollBtn, setVisibleScrollBtn ] = useState(false);
+    const { pathname, hash } = useLocation();
 
     const scrollTop = () => {
         window.scrollTo({
@@ -30,6 +31,12 @@ const RootLayout = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        if (!hash) {
+            window.scrollTo(0,0);
+        }
+    }, [ pathname, hash ])
 
     return (
         <div className="relative">

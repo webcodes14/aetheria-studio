@@ -49,24 +49,28 @@ export const siteConfig = {
             id: "branding",
             title: "Branding",
             desc_short: "Vytvoříme silnou, konzistentní vizuální identitu od loga po paletu, která rezonuje s vaším příběhem.",
+            desc_long: "Stavíme komplexní vizuální identity, které vyprávějí váš jedinečný příběh. To zahrnuje profesionální návrh loga, výběr typografie a strategickou paletu barev. Naším cílem je zajistit, aby vaše značka působila konzistentně a zapamatovatelně na všech digitálních i fyzických platformách a zanechala v zákaznících silný dojem.",
             icon: <MdOutlineBrandingWatermark />
         },
         {
             id: "webdesign",
             title: "Webdesign",
             desc_short: "Navrhujeme a vyvíjíme weby, které nejsou jen krásné, ale především funkční a přehledné.",
+            desc_long: "Vytváříme vysoce výkonné webové stránky, které spojují estetiku s technickou precizností. S využitím moderních frameworků jako React zajišťujeme, že váš web bude bleskově rychlý, responzivní a optimalizovaný pro vyhledávače. Od drátěných modelů až po poslední řádek kódu se soustředíme na doručení uživatelského zážitku, který mění návštěvníky v zákazníky.",
             icon: <MdOutlineWeb />
         },
         {
             id: "strategy",
             title: "Digitální strategie",
             desc_short: "Design bez strategie je jen dekorace. Pomáháme nastavit cestu vašeho zákazníka tak, aby web nebyl jen vizitkou, ale výkonným prodejním nástrojem.",
+            desc_long: "Design bez strategie je jen dekorace. Analyzujeme váš trh, konkurenci i cílovou skupinu, abychom naplánovali efektivní cestu zákazníka. Nastavujeme jasné cíle a KPI, aby vaše digitální prezentace nebyla jen vizitkou, ale výkonným nástrojem pro růst a automatizaci prodeje.",
             icon: <MdOutlineInsights />
         },
         {
             id: "consultation",
             title: "Konzultace",
             desc_short: "Začínáme dialogem. Poskytujeme expertní vhled a strategické vedení pro váš projekt ještě před prvními návrhy.",
+            desc_long: "Každý úspěšný projekt začíná hlubokým pochopením vaší vize. Poskytujeme expertní vhled a strategické vedení ještě předtím, než se pohne první pixel. Ať už ladíte stávající produkt nebo rozjíždíte nový projekt, naše konzultace pomohou ujasnit cíle, minimalizovat rizika a nastavit cestu k dlouhodobému úspěchu.",
             icon: <FaRegCommentDots />
         }
     ],
@@ -158,24 +162,28 @@ export const siteConfig = {
             id: "branding",
             title: "Branding",
             desc_short: "We create a strong, consistent visual identity from logo to palette that resonates with your story.",
+            desc_long: "We build comprehensive visual identities that tell your unique story. This includes professional logo design, custom typography, and a strategic color palette. Our goal is to ensure your brand remains consistent and memorable across all physical and digital touchpoints, creating a lasting impression on your audience.",
             icon: <MdOutlineBrandingWatermark />
         },
         {
             id: "webdesign",
             title: "Web Design",
             desc_short: "We design and develop websites that are not only beautiful but, above all, functional and clear.",
+            desc_long: "We create high-performance websites that blend aesthetics with technical precision. Using modern frameworks like React and Next.js, we ensure your site is lightning-fast, fully responsive, and SEO-optimized. From wireframes to the final line of code, we focus on delivering a seamless user experience that converts visitors into customers.",
             icon: <MdOutlineWeb />
         },
         {
             id: "strategy",
             title: "Digital Strategy",
-            desc_short: "Design without strategy is just decoration. We help set your customer's journey so that the web is not just a business card, but a powerful sales tool.",
+            desc_short: "Design without strategy is just decoration. We help set your customer's journey so the web isn't just a business card.",
+            desc_long: "Design without strategy is just decoration. We analyze your market, competitors, and target audience to map out an effective customer journey. We set clear goals and KPIs to ensure your digital presence isn't just a business card, but a powerful engine for growth and sales automation.",
             icon: <MdOutlineInsights />
         },
         {
             id: "consultation",
             title: "Consultation",
-            desc_short: "We start with a dialogue. Providing expert insights and strategic guidance for your project before the first designs take shape.",
+            desc_short: "We start with a dialogue. We provide expert insight and strategic guidance for your project.",
+            desc_long: "Every successful project starts with a deep dive into your vision. We provide expert insights and strategic guidance before a single pixel is moved. Whether you're refining an existing product or launching a new venture, our consultations help clarify your goals, minimize risks, and set a roadmap for long-term success.",
             icon: <FaRegCommentDots />
         }
     ],
@@ -266,25 +274,29 @@ export const siteConfig = {
         {
             id: "branding",
             title: "브랜딩",
-            desc_short: "로고부터 팔레트까지, 당신의 스토리와 어우러지는 강력하고 일관된 브랜드 아이덴티티를 만듭니다.",
+            desc_short: "로고부터 팔레트까지 당신의 이야기에 공명하는 강력하고 일관된 시각적 아이덴티티를 만듭니다.",
+            desc_long: "우리는 당신만의 고유한 이야기를 담은 종합적인 시각적 정체성을 구축합니다. 전문적인 로고 디자인, 맞춤형 타이포그래피, 전략적인 컬러 팔레트를 포함하여, 브랜드가 모든 온·오프라인 접점에서 일관되고 기억에 남을 수 있도록 돕습니다. 당신의 브랜드가 고객에게 깊은 인상을 남길 수 있도록 가치를 시각화합니다.",
             icon: <MdOutlineBrandingWatermark />
         },
         {
             id: "webdesign",
             title: "웹 디자인",
             desc_short: "아름다울 뿐만 아니라 무엇보다 기능적이고 명확한 웹사이트를 설계하고 개발합니다.",
+            desc_long: "미학적 아름다움과 기술적 정밀함이 조화를 이룬 고성능 웹사이트를 제작합니다. React와 같은 최신 프레임워크를 사용하여 속도가 빠르고, 모든 기기에 최적화된 반응형 웹을 구현합니다. 와이어프레임부터 최종 코드까지, 방문자를 실제 고객으로 전환시키는 완벽한 사용자 경험(UX)을 제공하는 데 집중합니다.",
             icon: <MdOutlineWeb />
         },
         {
             id: "strategy",
             title: "디지털 전략",
-            desc_short: "전략 없는 디자인은 장식에 불과합니다. 웹사이트가 단순한 명함을 넘어 강력한 영업 도구가 될 수 있도록 고객의 여정을 설정하는 데 도움을 드립니다.",
+            desc_short: "전략 없는 디자인은 장식일 뿐입니다. 웹이 단순한 명함이 되지 않도록 고객 여정을 설정해 드립니다.",
+            desc_long: "전략 없는 디자인은 단순한 장식에 불과합니다. 우리는 시장, 경쟁사 및 타겟 고객을 분석하여 효과적인 고객 여정을 설계합니다. 명확한 목표와 핵심 성과 지표(KPI)를 설정하여, 당신의 디지털 채널이 단순한 홍보 수단을 넘어 강력한 성장과 매출 자동화의 엔진이 되도록 만듭니다.",
             icon: <MdOutlineInsights />
         },
         {
             id: "consultation",
             title: "컨설팅",
-            desc_short: "대화에서 시작합니다. 첫 디자인이 나오기 전부터 프로젝트를 위한 전문가의 통찰과 전략적 가이드를 제공합니다.",
+            desc_short: "대화로 시작합니다. 프로젝트의 첫 디자인 전 전문가의 통찰과 전략적 가이드를 제공합니다.",
+            desc_long: "모든 성공적인 프로젝트는 당신의 비전을 깊이 이해하는 것에서 시작됩니다. 본격적인 기획 단계 전, 전문가의 통찰력과 전략적 가이드를 제공합니다. 기존 제품을 개선하든 새로운 사업을 시작하든, 우리의 컨설팅은 목표를 명확히 하고 리스크를 최소화하며 장기적인 성공을 위한 로드맵을 제시합니다.",
             icon: <FaRegCommentDots />
         }
     ],
