@@ -14,7 +14,7 @@ const Carousel = ({ children, data }) => {
     const prev = () => setIndex(prevState => (prevState - 1 + data.length) % data.length);
     const next = () => setIndex(prevState => (prevState + 1) % data.length);
 
-    /* useEffect(() => {
+    useEffect(() => {
         if( isPaused ) return;
 
         const timeout = setTimeout(() => {
@@ -22,7 +22,7 @@ const Carousel = ({ children, data }) => {
         }, 3000);
 
         return () => clearTimeout(timeout);
-    }, [ index, data, isPaused ]); */
+    }, [ index, data, isPaused ]);
 
     return <CarouselContext.Provider 
         value={{ index, prev, next, data }} 

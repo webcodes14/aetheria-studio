@@ -23,10 +23,8 @@ const App = () => {
 
   const themeColor = theme === 'light' ? '#1a1a1a' : 'white';
 
-  return <RouterProvider router={router} />
-
   /* Loading animace */
-  /* return (
+  return (
     <>
       <AnimatePresence>
         {isLoading &&
@@ -59,7 +57,7 @@ const App = () => {
       
       {!isLoading && <RouterProvider router={router} />}
     </>
-  ) */
+  )
 }
 
 export default App;
